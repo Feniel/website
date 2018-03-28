@@ -1,0 +1,31 @@
+body {
+    // background-image: url("../media/background.png");
+    background-color: #434342;
+}
+
+#nav {
+    position:absolute;
+    left: 35px;
+    top: 20px;
+    width: 95%;
+}
+
+#left {
+    float: left;
+}
+#right {
+    float: right;
+}
+
+#con {
+    position:absolute;
+    top: 30%;
+    left: 45%;
+}
+
+#media {
+    position:absolute;
+    top: 22%;
+    left: 10%;
+    width: 80%;
+}

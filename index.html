@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LeNerds</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap‐theme.min.css">
+    <link rel="stylesheet" type="text/css" href="sheets/outer.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="icon" href="media/favicon.png"/>
+</head>
+<body>
+<div id="nav">
+    <div id="left">
+        <img src="media/NavIcon.png" alt="Logo" />
+    </div>
+    <div id="right">
+        <a href="sites/media.html"><img src="media/hButton.png" alt="Button" /></a>
+    </div>
+</div>
+<div id="con">
+    <form action="includes/login/process_login.php" method="post" name="login_form">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <button type="submit" value="Login" class="btn btn-default">Login</button>
+    </form>
+</div>
+</body>
+</html>
