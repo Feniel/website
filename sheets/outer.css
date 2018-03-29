@@ -1,5 +1,4 @@
 body {
-    // background-image: url("../media/background.png");
     background-color: #434342;
 }
 
@@ -18,9 +17,15 @@ body {
 }
 
 #con {
+    background-color: #3C3C3C;
     position:absolute;
     top: 30%;
-    left: 45%;
+    left: 44%;
+    width: 14%;
+    padding: 15px;
+    border-width: medium;
+    border-color: black;
+    border-style: solid;
 }
 
 #media {
