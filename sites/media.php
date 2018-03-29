@@ -1,5 +1,5 @@
 <?php
-include_once '../includes/functions.php';
+    include_once '../includes/functions.php';
 ?>
 
 <html lang="en">
@@ -23,7 +23,14 @@ include_once '../includes/functions.php';
     </div>
 </div>
 <div id="media">
-    3333333333
+    <?php
+        $n = getId();
+
+        while($n > $i){
+            echo '<a href=""><img src="../media/thumb/med"+$i+".jpg"></a>'
+            $i++;
+        }
+    ?>
 </div>
 </body>
 </html>
