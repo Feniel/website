@@ -1,9 +1,9 @@
 <?php
+
 function getId() {
     $i = 1;
-    while (file_exists("../thumbs/thumb"$i".gif") {
+    while (file_exists("../media/cont/thumbs/thumb"+ $i +".gif")) {
         $i++;
     }
-    return $i
+    return $i;
 }
-?>
