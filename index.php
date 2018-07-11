@@ -17,17 +17,22 @@
         <img src="media/NavIcon.png" alt="Logo" />
     </div>
     <div id="right">
-        <a href="sites/media.php"><img src="media/hButton.png" alt="Button" /></a>
+        <a href="sites/media.php"><img src="media/hButton.png" alt="Button"></a>
     </div>
 </div>
 <div id="login">
     <h4>Herzlich Willkommen</h4>
     <form action="includes/process_login.php" method="post" name="login_form">
-        <input type="text" id="email" class="form-control input-sm chat-input" placeholder="username" />
+        <input type="text" name="email" id="email" class="form-control input-sm chat-input" placeholder="username" />
         </br>
-        <input type="password" id="password" class="form-control input-sm chat-input" placeholder="password" />
+        <input type="password" name="password" id="password" class="form-control input-sm chat-input" placeholder="password" />
         </br>
         <input type="submit" name="login" class="btn btn-primary btn-md" value="Login" onclick="formhash(this.form, this.form.password);">
+        <?php
+        if (isset($_GET['error'])){
+            echo '<span id="error">Error Logging In!<span>';
+        }
+        ?>
     </form>
 </div>
 </body>

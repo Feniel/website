@@ -38,3 +38,8 @@ body {
 h4 {
     color: black;
 }
+
+#error {
+    font-weight: bold;
+    color: firebrick;
+}
