@@ -1,4 +1,4 @@
-function formhash(form, password) {
+function formhash(form, password){
     // Erstelle ein neues Feld für das gehashte Passwort.
     var p = document.createElement("input");
 
