@@ -3,7 +3,7 @@ include_once 'dbconnect_login.php';
 
 function sec_session_start() {
     $session_name = 'sec_session_id';
-    $secure = SECURE;
+    $secure = true;
     $httponly = true;
     if (ini_set('session.use_only_cookies', 1) === FALSE) {
         header("Location: ../index.php?error=1");
@@ -36,6 +36,7 @@ function login($email, $password, $mysqli) {
 
         // hash das Passwort mit dem eindeutigen salt.
         $password = hash('sha512', $password . $salt);
+
         if ($stmt->num_rows == 1) {
             // Wenn es den Benutzer gibt, dann wird überprüft ob das Konto
             // blockiert ist durch zu viele Login-Versuche
@@ -111,6 +112,7 @@ function login_check($mysqli) {
         $username = $_SESSION['username'];
 
         $user_browser = $_SERVER['HTTP_USER_AGENT'];
+        $password = "";
 
         if ($stmt = $mysqli->prepare("SELECT password 
                                       FROM members 

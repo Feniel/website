@@ -1,3 +1,7 @@
+<?php
+    //include_once ;
+    //include_once 'includes/functions.php';
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
