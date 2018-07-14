@@ -3,6 +3,7 @@ include_once 'functions_login.php';
 include_once 'dbconnect_login.php';
 
 sec_session_start();
+
 if (isset($_POST['email'], $_POST['p'])) {
     $email = $_POST['email'];
     $password = $_POST['p'];

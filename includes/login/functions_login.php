@@ -3,10 +3,10 @@ include_once 'dbconnect_login.php';
 
 function sec_session_start() {
     $session_name = 'sec_session_id';
-    $secure = true;
+    $secure = false;
     $httponly = true;
     if (ini_set('session.use_only_cookies', 1) === FALSE) {
-        header("Location: ../index.php?error=1");
+        header("Location: ../index.php?error=2");
         exit();
     }
     $cookieParams = session_get_cookie_params();

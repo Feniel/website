@@ -4,8 +4,10 @@ body {
 
 #nav {
     position:absolute;
-    left: 35px;
-    top: 20px;
+    /* left: 35px; */
+    left: 1.82%;
+    /* top: 20px; */
+    top: 1%;
     width: 95%;
 }
 

@@ -1,6 +1,9 @@
 <?php
-    //include_once ;
-    //include_once 'includes/functions.php';
+include_once '../includes/login/functions_login.php';
+
+sec_session_start();
+
+$user = $_SESSION['username'];
 ?>
 <html lang="en">
 <head>
@@ -16,11 +19,18 @@
     <link rel="icon" href="media/favicon.png"/>
 </head>
 <body>
+<?php
+    if (login_check($mysqli) == true) :
+?>
 <div id="nav">
     <?php
         include '../sites/nav.php';
     ?>
-</div>
-
+</div><hr>
+<?php
+    else :
+        //header('Location: ../index.php?error=2');
+    endif;
+?>
 </body>
 </html>
