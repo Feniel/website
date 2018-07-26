@@ -5,7 +5,7 @@ sec_session_start();
 
 $user = $_SESSION['username'];
 ?>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>LeNerds</title>
@@ -15,21 +15,29 @@ $user = $_SESSION['username'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Custom Imports -->
+    <link rel="stylesheet" type="text/css" href="../sheets/nav.css"/>
     <link rel="stylesheet" type="text/css" href="../sheets/inner.css"/>
     <link rel="icon" href="media/favicon.png"/>
 </head>
 <body>
 <?php
     if (login_check($mysqli) == true) :
+
+    include '../includes/nav.php';
 ?>
-<div id="nav">
-    <?php
-        include '../sites/nav.php';
-    ?>
-</div><hr>
+<div id="placeholder1"></div>
+<div id="main">
+    Herzlich Willkommen <?php echo $user; ?>
+<?php
+    if ($user = "Tim") {
+        echo '<br>';
+        echo '<a href="editor.php">SQL Editor</a>';
+    }
+?>
+</div>
 <?php
     else :
-        //header('Location: ../index.php?error=2');
+        header('Location: ../index.php?error=2');
     endif;
 ?>
 </body>
