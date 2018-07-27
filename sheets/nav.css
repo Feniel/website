@@ -21,22 +21,23 @@ body {
 
 #navPlaceholder2 {
     float: left;
-    width: 80%;
+    width: 90%;
     height: 30%;
 }
 
 #row {
     float: left;
-    width: 30%;
+    width: 11%;
     height: 60%;
     font-size: small;
     font-weight: bold;
+    text-align: center;
     color: white;
 }
 
 #rowHolder {
     float: left;
-    width: 25%;
+    width: 7%;
     height: 60%;
 }
 
@@ -46,9 +47,15 @@ body {
     height: 50%;
 }
 
+#logout {
+    float: right;
+    height: 100%;
+    width: 5%;
+}
+
 #menu {
     float: left;
-    width: 20%;
+    width: 77%;
 }
 
 #hrHolder {

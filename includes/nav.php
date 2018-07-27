@@ -9,8 +9,14 @@
             <a href="../sites/main.php" id="row">Hauptseite</a>
         </div><div id="rowHolder"></div>
         <div>
-            <a href="server.php" id="row">Server</a>
+            <a href="../sites/server.php" id="row">Server</a>
         </div><div id="rowHolder"></div>
+        <div>
+            <a href="../sites/datenbank.php" id="row">Server</a>
+        </div><div id="rowHolder"></div>
+        <div id="logout">
+            <a href="../includes/login/logout.php" id="row">Logout</a>
+        </div>
     </div>
 </div>
 <div id="hrHolder"></div>
