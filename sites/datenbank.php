@@ -24,29 +24,10 @@ $user = $_SESSION['username'];
 if (login_check($mysqli) == true) :
 
     include '../includes/nav.php';
-?>
-<div id="placeholder2"></div>
-<div id="placeholder3"></div>
-<div id="table">
-    <table class="table" style="background-color: dimgrey">
-        <tr>
-            <span id="head">
-            <th>ID</th>
-            <th>Datum</th>
-            <th>Name</th>
-            <th>Guthaben</th>
-            <th>Transaktion</th>
-            </span>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>12.3.1996</td>
-            <td>Tim</td>
-            <td>12€</td>
-            <td style="color: red">-3.60€</td>
-        </tr>
-    </table>
-</div>
+    ?>
+
+
+
 <?php
 else :
     header('Location: ../index.php?error=2');
