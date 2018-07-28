@@ -6,7 +6,10 @@
     </div>
     <div id="menu">
         <div>
-            <a href="../sites/server.php" id="row">Server</a>
+            <a href="../sites/information.php" id="row">Information</a>
+        </div><div id="rowHolder"></div>
+        <div>
+            <a href="../sites/bezahlung.php" id="row">Bezahlung</a>
         </div><div id="rowHolder"></div>
         <div>
             <a href="../sites/datenbank.php" id="row">Datenbank</a>

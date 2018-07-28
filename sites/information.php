@@ -26,8 +26,7 @@ if (login_check($mysqli) == true) :
     include '../includes/nav.php';
     ?>
 
-<center>Auf dieser Seite können leider noch keine Daten angeboten werden.<br>
-Mit freundlichen Grüßen ihr LeNerds Tech Support</center>
+
 
 <?php
 else :
