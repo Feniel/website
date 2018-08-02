@@ -24,10 +24,36 @@ $user = $_SESSION['username'];
 if (login_check($mysqli) == true) :
 
     include '../includes/nav.php';
-    ?>
-
-
-
+?>
+<div id="placeholder2"></div>
+<div id="placeholder3"></div>
+Wir haben seit dem 25 Februar 2018 bei Strato das Paket V-Server Linux V40 gemietet.<br><br>
+<table>
+    <tr>
+        <th>Komponent</th>
+        <th>Information</th>
+    </tr>
+    <tr>
+        <td>Prozessor</td>
+        <td>6 CPU vCores</td>
+    </tr>
+    <tr>
+        <td>RAM</td>
+        <td>12 GB</td>
+    </tr>
+    <tr>
+        <td>Datenspeicher</td>
+        <td>600 GB SSD/HDD</td>
+    </tr>
+    <tr>
+        <td>Anbindung</td>
+        <td>500 MBit/s</td>
+    </tr>
+    <tr>
+        <td>Betriebssystem</td>
+        <td>Ubuntu 16.04 LTS</td>
+    </tr>
+</table>
 <?php
 else :
     header('Location: ../index.php?error=2');

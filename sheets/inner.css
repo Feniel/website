@@ -30,7 +30,7 @@ body{
 
 #placeholder3 {
     float: left;
-    width: 10%;
+    width: 5%;
     height: 50%;
 }
 
@@ -46,4 +46,12 @@ body{
     border-style: solid;
     padding: 3px;
     float: left;
+}
+
+#red {
+    color: darkred;
+}
+
+#green {
+    color: darkgreen;
 }

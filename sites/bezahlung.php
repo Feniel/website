@@ -14,34 +14,12 @@ $id = mysqli_fetch_object($ergebnis)->id;
 $query = "SELECT guthaben FROM members WHERE id = '$id'";
 $ergebnis = mysqli_query($db, $query);
 $guthaben = mysqli_fetch_object($ergebnis)->guthaben;
-$query = "SELECT COUNT(id) AS Anzahl FROM transaktion WHERE id = '$id' LIMIT 12";
+//$query = "SELECT COUNT(id) AS Anzahl FROM transaktion WHERE id = '$id' LIMIT 12";
+//$ergebnis = mysqli_query($db, $query);
+//$anzahl = mysqli_fetch_object($ergebnis)->Anzahl;
+$query = "SELECT transId, datum, guthabenNach, transaktion, notiz FROM transaktion WHERE id = '$id' LIMIT 10";
 $ergebnis = mysqli_query($db, $query);
-$anzahl = mysqli_fetch_object($ergebnis)->Anzahl;
-$query = "SELECT datum, guthabenNach, transaktion, notiz FROM transaktion WHERE id = '$id' LIMIT 10";
-$ergebnis = mysqli_query($db, $query);
 
-$data = array();
-$counter = 1;
-$counter2 = 2;
-while($row = mysqli_fetch_array( $ergebnis , MYSQLI_ASSOC )){
-    $data[$counter]['datum'] = $row['datum'];
-    $data[$counter]['guthabenNach'] = $row['guthabenNach'];
-    $data[$counter]['transaktion'] = $row['transaktion'];
-    $data[$counter]['notiz'] = $row['notiz'];
-//    $row = mysqli_fetch_array( $ergebnis , MYSQLI_ASSOC );
-//    $data[$counter2]['datum'] = $row['datum'];
-//    $data[$counter2]['guthabenNach'] = $row['guthabenNach'];
-//    $data[$counter2]['transaktion'] = $row['transaktion'];
-//    $data[$counter2]['notiz'] = $row['notiz'];
-}
-
-echo "<br><br>";
-print_r ($data);
-echo "<br>-------<br>";
-$json = json_encode($data);
-print_r ($json);
-
-//$data["1"] = array($row['datum'], $row['guthabenNach'], $row['transaktion'], $row['notiz']);
 ?>
 <html lang="de">
 <head>
@@ -70,30 +48,53 @@ if (login_check($mysqli) == true) :
     <table class="table" style="background-color: dimgrey">
         <tr>
             <span id="head">
-            <th>Name</th>
+            <th>Transaktions ID</th>
             <th>Datum</th>
             <th>Guthaben</th>
-            <th>Notiz</th>
             <th>Transaktion</th>
+            <th>Notiz</th>
             </span>
         </tr>
-        <script>
-            window.onload = function () {
-                var username = "<?php echo $user; ?>";
-                var id = <?php echo $id; ?>;
-                var anzahl = <?php echo $anzahl; ?>;
+            <?php
+            while($row = mysqli_fetch_array( $ergebnis , MYSQLI_ASSOC )){
+                echo "<tr><td>";
+                echo $row['transId'];
+                echo "</td><td>";
+                echo $row['datum'];
+                echo "</td><td>";
+                $tmp = substr($row['guthabenNach'], 0, 1);
+                if($row['guthabenNach'] >= 0){
+                    echo "<span id='green'>". $row['guthabenNach'] ."</>";
+                }else{
+                    echo "<span id='red'>". $row['guthabenNach'] ."</span>";
+                }
+                echo "</td><td>";
+                echo $row['transaktion'];
+                echo "</td><td>";
+                echo $row['notiz'];
+                echo "</td></tr>";
             }
-        </script>
+            ?>
     </table>
 </div>
 <div id="placeholder4"></div>
 <div id="output">
     <h3>Aktuelles Guthaben:
         <?php
-            echo $guthaben . " €";
+            if($guthaben >= 0){
+                echo "<span id='green'>". $guthaben ."€</span>";
+            }else{
+                echo "<span id='red'>". $guthaben ."€</span>";
+            }
         ?>
     </h3>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var username = "<?php echo $user; ?>";
+        var id = <?php echo $id; ?>;
+    });
+</script>
 <?php
 else :
     header('Location: ../index.php?error=2');
