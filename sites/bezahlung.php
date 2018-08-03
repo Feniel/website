@@ -64,9 +64,9 @@ if (login_check($mysqli) == true) :
                 echo "</td><td>";
                 $tmp = substr($row['guthabenNach'], 0, 1);
                 if($row['guthabenNach'] >= 0){
-                    echo "<span id='green'>". $row['guthabenNach'] ."</>";
+                    echo "<span id='green'>". $row['guthabenNach'] ." €</span>";
                 }else{
-                    echo "<span id='red'>". $row['guthabenNach'] ."</span>";
+                    echo "<span id='red'>". $row['guthabenNach'] ." €</span>";
                 }
                 echo "</td><td>";
                 echo $row['transaktion'];
@@ -82,9 +82,9 @@ if (login_check($mysqli) == true) :
     <h3>Aktuelles Guthaben:
         <?php
             if($guthaben >= 0){
-                echo "<span id='green'>". $guthaben ."€</span>";
+                echo "<span id='green'>". $guthaben ." €</span>";
             }else{
-                echo "<span id='red'>". $guthaben ."€</span>";
+                echo "<span id='red'>". $guthaben ." €</span>";
             }
         ?>
     </h3>
