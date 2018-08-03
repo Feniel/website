@@ -5,8 +5,6 @@ include_once '../includes/dbconnect.php';
 sec_session_start();
 
 $user = $_SESSION['username'];
-$serverkosten = 1.21;
-$countUser = 14;
 
 $query = "SELECT id FROM members WHERE username = '$user'";
 $ergebnis = mysqli_query($db, $query);

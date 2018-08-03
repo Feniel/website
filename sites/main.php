@@ -1,9 +1,12 @@
 <?php
 include_once '../includes/login/functions_login.php';
+include_once '../includes/functions.php';
 
 sec_session_start();
 
 $user = $_SESSION['username'];
+
+kostenUpdate();
 ?>
 <html lang="de">
 <head>
