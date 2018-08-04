@@ -18,7 +18,8 @@ function getId() {
 }
 
 function kostenUpdate() {
-    global $db, $mon, $tag, $user, $datum;
+    kostenNachtragen();
+    global $db, $mon, $tag, $user;
     $serverkosten = 1.21;
     $countUser = 14;
     $query = "SELECT serverkosten FROM monate WHERE monat = '$mon'";
@@ -41,9 +42,17 @@ function kostenUpdate() {
                 $ergebnis = mysqli_query($db, $query);
                 $tmp = mysqli_fetch_object($ergebnis)->Expr;
                 $tmp++;
-                mysqli_query($db, "INSERT INTO transaktion VALUES ('$tmp', '$id', '$datum', '$guthaben', '-1.21', 'monatliche Serverkosten')");
+                $monAusgabe = "15 " . $mon;
+                mysqli_query($db, "INSERT INTO transaktion VALUES ('$tmp', '$id', '$monAusgabe', '$guthaben', '-1.21', 'monatliche Serverkosten')");
                 $counter++;
             }
         }
     }
+}
+
+function kostenNachtragen(){
+    global $mon, $db;
+    $query = "SELECT nr FROM monate WHERE monat = '$mon'";
+    $ergebnis = mysqli_query($db, $query);
+    $tmp = mysqli_fetch_object($ergebnis)->nr;
 }

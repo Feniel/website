@@ -19,7 +19,6 @@ $user = $_SESSION['username'];
     <link rel="stylesheet" type="text/css" href="../sheets/inner.css"/>
     <link rel="icon" href="media/favicon.png"/>
 </head>
-<br>
 <?php
 if (login_check($mysqli) == true) :
 
@@ -27,45 +26,46 @@ if (login_check($mysqli) == true) :
 ?>
 <div id="placeholder2"></div>
 <div id="placeholder3"></div>
-Wir haben seit dem 25 Februar 2018 bei Strato das Paket V-Server Linux V40 gemietet.<br><br>
-<table width=300>
-    <tr>
-        <th>Komponent</th>
-        <th>Information</th>
-    </tr>
-    <tr>
-        <td>Prozessor</td>
-        <td>6 CPU vCores</td>
-    </tr>
-    <tr>
-        <td>RAM</td>
-        <td>12 GB</td>
-    </tr>
-    <tr>
-        <td>Datenspeicher</td>
-        <td>600 GB SSD/HDD</td>
-    </tr>
-    <tr>
-        <td>Anbindung</td>
-        <td>500 MBit/s</td>
-    </tr>
-    <tr>
-        <td>Betriebssystem</td>
-        <td>Ubuntu 16.04 LTS</td>
-    </tr>
-</table>
-<h6>
-    Auf dem Server sind folgende Spieleserver vorhanden:<br>
-    Minecraft, CsGO<br>
-    Unter <a href="http://81.169.174.67:2812/">Monit</a> können die einzelnen Dienste eingesehen werden<br>
-    monit<br>
-    Ab1234
-</h6>
-<br><br>
-    <div id="output">
-        <h3>IP Adresse : 81.169.174.67
-        </h3>
-    </div>
+<div id="info">
+    Wir haben seit dem 25 Februar 2018 bei Strato das Paket V-Server Linux V40 gemietet.<br><br>
+    <table width=300>
+        <tr>
+            <th>Komponent</th>
+            <th>Information</th>
+        </tr>
+        <tr>
+            <td>Prozessor</td>
+            <td>6 CPU vCores</td>
+        </tr>
+        <tr>
+            <td>RAM</td>
+            <td>12 GB</td>
+        </tr>
+        <tr>
+            <td>Datenspeicher</td>
+            <td>600 GB SSD/HDD</td>
+        </tr>
+        <tr>
+            <td>Anbindung</td>
+            <td>500 MBit/s</td>
+        </tr>
+        <tr>
+            <td>Betriebssystem</td>
+            <td>Ubuntu 16.04 LTS</td>
+        </tr>
+    </table>
+    <h6>
+        Auf dem Server sind folgende Spieleserver vorhanden:<br>
+        Minecraft, CsGO<br>
+        Unter <a href="http://81.169.174.67:2812/">Monit</a> können die einzelnen Dienste eingesehen werden<br>
+        monit<br>
+        xxxxx
+    </h6>
+</div>
+<div id="output">
+    <h3>IP Adresse : 81.169.174.67
+    </h3>
+</div>
 <?php
 else :
     header('Location: ../index.php?error=2');

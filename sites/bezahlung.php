@@ -12,10 +12,7 @@ $id = mysqli_fetch_object($ergebnis)->id;
 $query = "SELECT guthaben FROM members WHERE id = '$id'";
 $ergebnis = mysqli_query($db, $query);
 $guthaben = mysqli_fetch_object($ergebnis)->guthaben;
-//$query = "SELECT COUNT(id) AS Anzahl FROM transaktion WHERE id = '$id' LIMIT 12";
-//$ergebnis = mysqli_query($db, $query);
-//$anzahl = mysqli_fetch_object($ergebnis)->Anzahl;
-$query = "SELECT transId, datum, guthabenNach, transaktion, notiz FROM transaktion WHERE id = '$id' LIMIT 10";
+$query = "SELECT transId, datum, guthabenNach, transaktion, notiz FROM transaktion WHERE id = '$id' LIMIT 12";
 $ergebnis = mysqli_query($db, $query);
 
 ?>
