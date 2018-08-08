@@ -55,3 +55,21 @@ body{
 #green {
     color: darkgreen;
 }
+
+#right {
+    float: left;
+    border-color: grey;
+    border-width: 2px;
+    border-style: solid;
+    padding: 3px;
+}
+
+#left {
+    width: 60%;
+    float: left;
+}
+
+#cont {
+    float: left;
+    width: 50%;
+}

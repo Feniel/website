@@ -12,14 +12,6 @@ $tag = @date(j);
 $serverkosten = 1.21;
 $countUser = 14;
 
-function getId() {
-    $i = 1;
-    while (file_exists("../media/cont/thumbs/thumb"+ $i +".gif")) {
-        $i++;
-    }
-    return $i;
-}
-
 function kostenUpdate() {
     kostenNachtragen();
     global $db, $mon, $tag, $serverkosten, $countUser;
@@ -31,15 +23,10 @@ function kostenUpdate() {
             mysqli_query($db, "UPDATE monate SET serverkosten = 'x' WHERE monat = '$mon'");
             $counter = 1;
             while($counter <= $countUser){
-                $query = "SELECT guthaben FROM members WHERE id = '$counter'";
-                $ergebnis = mysqli_query($db, $query);
-                $tmp = mysqli_fetch_object($ergebnis)->guthaben;
+                $tmp = getGuthabenById($counter);
                 $guthaben = $tmp - $serverkosten;
-                mysqli_query($db, "UPDATE members SET guthaben = '$guthaben' WHERE id = '$counter'");
-                $query = "SELECT MAX(transId) AS Expr FROM transaktion";
-                $ergebnis = mysqli_query($db, $query);
-                $tmp = mysqli_fetch_object($ergebnis)->Expr;
-                $tmp++;
+                setGuthabenById($guthaben,$counter);
+                $tmp = getMaxTransId();
                 $monAusgabe = "15 " . $mon;
                 mysqli_query($db, "INSERT INTO transaktion VALUES ('$tmp', '$counter', '$monAusgabe', '$guthaben', '-1.21', 'monatliche Serverkosten')");
                 $counter++;
@@ -65,19 +52,44 @@ function kostenNachtragen(){
             mysqli_query($db, "UPDATE monate SET serverkosten = 'x' WHERE monat = '$tcMon'");
             $counter2 = 1;
             while($counter2 <= $countUser){
-                $query = "SELECT guthaben FROM members WHERE id = '$counter2'";
-                $ergebnis = mysqli_query($db, $query);
-                $tmp = mysqli_fetch_object($ergebnis)->guthaben;
+                $tmp = getGuthabenById($counter2);
                 $guthaben = $tmp - $serverkosten;
-                mysqli_query($db, "UPDATE members SET guthaben = '$guthaben' WHERE id = '$counter2'");
-                $query = "SELECT MAX(transId) AS Expr FROM transaktion";
-                $ergebnis = mysqli_query($db, $query);
-                $tmp = mysqli_fetch_object($ergebnis)->Expr;
-                $tmp++;
+                setGuthabenById($guthaben,$counter2);
+                $tmp = getMaxTransId();
                 $monAusgabe = "15 " . $tcMon;
                 mysqli_query($db, "INSERT INTO transaktion VALUES ('$tmp', '$counter2', '$monAusgabe', '$guthaben', '-1.21', 'monatliche Serverkosten')");
                 $counter2++;
             }
         }
     }
+}
+
+function getMaxTransId() {
+    global $db;
+    $query = "SELECT MAX(transId) AS Expr FROM transaktion";
+    $ergebnis = mysqli_query($db, $query);
+    $tmp = mysqli_fetch_object($ergebnis)->Expr;
+    $tmp++;
+    return $tmp;
+}
+
+function getUserId(){
+    global $user,$db;
+    $query = "SELECT id FROM members WHERE username = '$user'";
+    $ergebnis = mysqli_query($db, $query);
+    $id = mysqli_fetch_object($ergebnis)->id;
+    return $id;
+}
+
+function getGuthabenById($id){
+    global $db;
+    $query = "SELECT guthaben FROM members WHERE id = '$id'";
+    $ergebnis = mysqli_query($db, $query);
+    $tmp = mysqli_fetch_object($ergebnis)->guthaben;
+    return $tmp;
+}
+
+function setGuthabenById($set, $id){
+    global $db;
+    mysqli_query($db, "UPDATE members SET guthaben = '$set' WHERE id = '$id'");
 }

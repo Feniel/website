@@ -1,18 +1,16 @@
 <?php
 include_once '../includes/login/functions_login.php';
-include_once '../includes/dbconnect.php';
+include_once '../includes/functions.php';
 
 sec_session_start();
 
 $user = $_SESSION['username'];
 
-$query = "SELECT id FROM members WHERE username = '$user'";
-$ergebnis = mysqli_query($db, $query);
-$id = mysqli_fetch_object($ergebnis)->id;
+$id = getUserId();
 $query = "SELECT guthaben FROM members WHERE id = '$id'";
 $ergebnis = mysqli_query($db, $query);
 $guthaben = mysqli_fetch_object($ergebnis)->guthaben;
-$query = "SELECT transId, datum, guthabenNach, transaktion, notiz FROM transaktion WHERE id = '$id' LIMIT 12";
+$query = "SELECT transId, datum, guthabenNach, transaktion, notiz FROM transaktion WHERE id = '$id' ORDER BY transId DESC LIMIT 14";
 $ergebnis = mysqli_query($db, $query);
 
 ?>

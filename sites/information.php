@@ -26,7 +26,7 @@ if (login_check($mysqli) == true) :
 ?>
 <div id="placeholder2"></div>
 <div id="placeholder3"></div>
-<div id="info">
+<div id="left">
     Wir haben seit dem 25 Februar 2018 bei Strato das Paket V-Server Linux V40 gemietet.<br><br>
     <table width=300>
         <tr>
@@ -54,16 +54,16 @@ if (login_check($mysqli) == true) :
             <td>Ubuntu 16.04 LTS</td>
         </tr>
     </table>
-    <h6>
+    <h5>
         Auf dem Server sind folgende Spieleserver vorhanden:<br>
-        Minecraft, CsGO<br>
+        Minecraft, CsGO<br><br>
         Unter <a href="http://81.169.174.67:2812/">Monit</a> können die einzelnen Dienste eingesehen werden<br>
         monit<br>
         xxxxx
-    </h6>
+    </h5>
 </div>
-<div id="output">
-    <h3>IP Adresse : 81.169.174.67
+<div id="right">
+    <h3 id="adress">IP Adresse : 81.169.174.67
     </h3>
 </div>
 <?php

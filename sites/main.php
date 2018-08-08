@@ -32,7 +32,7 @@ kostenUpdate();
 <div id="main">
     Herzlich Willkommen <?php echo $user; ?>
 <?php
-    if ($user = "Tim") {
+    if ($user = "TimF") {
         echo '<br>';
         echo '<a href="editor.php">SQL Editor</a>';
     }
