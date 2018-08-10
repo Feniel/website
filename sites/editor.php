@@ -32,7 +32,7 @@ if (isset($_POST['transaktion']) && isset($_POST['notiz'])) {
 
     $guthabenNach = $guthaben;
 
-    mysqli_query($db, "INSERT INTO transaktion VALUES ('$transId', '$id', '$date', '$guthabenNach', '$transaktion', '$notiz')");
+    mysqli_query($mysqli, "INSERT INTO transaktion VALUES ('$transId', '$id', '$date', '$guthabenNach', '$transaktion', '$notiz')");
 }
 ?>
 <html lang="de">

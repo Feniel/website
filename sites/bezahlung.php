@@ -8,10 +8,10 @@ $user = $_SESSION['username'];
 
 $id = getUserId();
 $query = "SELECT guthaben FROM members WHERE id = '$id'";
-$ergebnis = mysqli_query($db, $query);
+$ergebnis = mysqli_query($mysqli, $query);
 $guthaben = mysqli_fetch_object($ergebnis)->guthaben;
 $query = "SELECT transId, datum, guthabenNach, transaktion, notiz FROM transaktion WHERE id = '$id' ORDER BY transId DESC LIMIT 14";
-$ergebnis = mysqli_query($db, $query);
+$ergebnis = mysqli_query($mysqli, $query);
 
 ?>
 <html lang="de">

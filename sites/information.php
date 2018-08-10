@@ -1,5 +1,6 @@
 <?php
 include_once '../includes/login/functions_login.php';
+include_once '../includes/functions.php';
 
 sec_session_start();
 

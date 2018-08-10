@@ -1,5 +1,5 @@
 <?php
-include_once 'dbconnect_login.php';
+include_once '../db_connect.php';
 
 function sec_session_start() {
     $session_name = 'sec_session_id';
@@ -21,6 +21,11 @@ function sec_session_start() {
 }
 
 function login($email, $password, $mysqli) {
+    global $mysqli;
+    $user_id = "";
+    $username = "";
+    $db_password = "";
+    $salt = "";
     // Das Benutzen vorbereiteter Statements verhindert SQL-Injektion.
     if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
         FROM members
@@ -34,6 +39,9 @@ function login($email, $password, $mysqli) {
         $stmt->bind_result($user_id, $username, $db_password, $salt);
         $stmt->fetch();
 
+        echo $user_id . "<br>";
+        echo $username . "<br>";
+
         // hash das Passwort mit dem eindeutigen salt.
         $password = hash('sha512', $password . $salt);
 
@@ -44,7 +52,7 @@ function login($email, $password, $mysqli) {
             if (checkbrute($user_id, $mysqli) == true) {
                 // Konto ist blockiert
                 // Schicke E-Mail an Benutzer, dass Konto blockiert ist
-                return false;
+//                return false;
             } else {
                 // Überprüfe, ob das Passwort in der Datenbank mit dem vom
                 // Benutzer angegebenen übereinstimmt.
@@ -63,19 +71,19 @@ function login($email, $password, $mysqli) {
                     $_SESSION['login_string'] = hash('sha512',
                         $password . $user_browser);
                     // Login erfolgreich.
-                    return true;
+ //                   return true;
                 } else {
                     // Passwort ist nicht korrekt
                     // Der Versuch wird in der Datenbank gespeichert
                     $now = time();
                     $mysqli->query("INSERT INTO login_attempts(user_id, time)
                                     VALUES ('$user_id', '$now')");
-                    return false;
+//                    return false;
                 }
             }
         } else {
             //Es gibt keinen Benutzer.
-            return false;
+//            return false;
         }
     }
 }

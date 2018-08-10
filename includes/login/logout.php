@@ -1,5 +1,6 @@
 <?php
 include_once 'functions_login.php';
+
 sec_session_start();
 
 $_SESSION = array();
