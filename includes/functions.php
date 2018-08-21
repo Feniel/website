@@ -1,17 +1,25 @@
 <?php
 include_once 'db_connect.php';
 
-
+//Datumeinstellungen
 date_default_timezone_set("Europe/Berlin");
 $timestamp = time();
 $datum = date("d.m.Y - H:i", $timestamp);
 
+//Nur der Monat
 $mon = @date(F);
+//Nur der Tag
 $tag = @date(j);
 
+//Die Standart Serverkosten pro Monat
 $serverkosten = 1.21;
+//Die Anzahl der User
 $countUser = 14;
 
+
+/*
+ * Wird aufgerufen um jedem User die monatlichen Serverkossten vom Guthaben zu subtrahieren.
+ */
 function kostenUpdate() {
     kostenNachtragen();
     global $mysqli, $mon, $tag, $serverkosten, $countUser;
@@ -35,6 +43,9 @@ function kostenUpdate() {
     }
 }
 
+/*
+ * Prüft ab August durch ob dem entsprechenden Monat schon kostenUpdate ausgeführt wurde und führt es gegebenenfalls aus.
+ */
 function kostenNachtragen(){
     global $mon, $mysqli, $serverkosten, $countUser;
     $query = "SELECT nr FROM monate WHERE monat = '$mon'";
@@ -64,6 +75,9 @@ function kostenNachtragen(){
     }
 }
 
+/*
+ * Gibt die maximale Transaktions ID aus der trasnaktions Tabelle aus.
+ */
 function getMaxTransId() {
     global $mysqli;
     $query = "SELECT MAX(transId) AS Expr FROM transaktion";
@@ -73,6 +87,9 @@ function getMaxTransId() {
     return $tmp;
 }
 
+/*
+ * Gibt anhand der aus dem cookie entnommenden usernamen die id aus
+ */
 function getUserId(){
     global $user,$mysqli;
     $query = "SELECT id FROM members WHERE username = '$user'";
@@ -81,6 +98,11 @@ function getUserId(){
     return $id;
 }
 
+/*
+ * Gibt das aktuelle Guthaben anhand der id aus.
+ *
+ * @param id die id dessen guthaben ausgegeben werden soll
+ */
 function getGuthabenById($id){
     global $mysqli;
     $query = "SELECT guthaben FROM members WHERE id = '$id'";
@@ -89,6 +111,13 @@ function getGuthabenById($id){
     return $tmp;
 }
 
+/*
+ * Setzt das guthaben anhand der id
+ *
+ * @param set der wert auf den das guthaben gesetzt werden soll
+ *
+ * @param id die id dessen guthaben geändert werden soll
+ */
 function setGuthabenById($set, $id){
     global $mysqli;
     mysqli_query($mysqli, "UPDATE members SET guthaben = '$set' WHERE id = '$id'");

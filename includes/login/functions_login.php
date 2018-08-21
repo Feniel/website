@@ -22,11 +22,12 @@ function sec_session_start() {
 
 function login($email, $password, $mysqli) {
     global $mysqli;
-    $user_id = "";
-    $username = "";
-    $db_password = "";
-    $salt = "";
+    //$user_id = "";
+    //$username = "";
+    //$db_password = "";
+    //$salt = "";
     // Das Benutzen vorbereiteter Statements verhindert SQL-Injektion.
+    //Hier ist der fucking Fehler
     if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
         FROM members
        WHERE email = ?
