@@ -1,6 +1,8 @@
 <?php
 include_once 'db_connect.php';
 
+
+
 //Datumeinstellungen
 date_default_timezone_set("Europe/Berlin");
 $timestamp = time();
