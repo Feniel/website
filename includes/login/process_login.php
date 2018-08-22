@@ -9,11 +9,9 @@ if (isset($_POST['email'], $_POST['p'])) {
     $password = $_POST['p'];
 
     if (login($email, $password, $mysqli) == true) {
-//        header('Location: ../../sites/main.php');
-        echo "404";
+        header('Location: ../../sites/main.php');
     } else { 
-//        header('Location: ../../index.php?error=1');
-        echo "550";
+        header('Location: ../../index.php?error=1');
     }
 } else { 
     echo 'Invalid Request';
