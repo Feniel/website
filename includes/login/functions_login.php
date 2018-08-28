@@ -39,7 +39,6 @@ function login($email, $password, $mysqli) {
 
         // hash das Passwort mit dem eindeutigen salt.
         $password = hash('sha512', $password . $salt);
-
         if ($stmt->num_rows == 1) {
             // Wenn es den Benutzer gibt, dann wird überprüft ob das Konto
             // blockiert ist durch zu viele Login-Versuche

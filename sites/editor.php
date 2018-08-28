@@ -62,22 +62,24 @@ if (login_check($mysqli) == true) :
     <div id="cont">
         <h3>Transaktion hinzufügen</h3>
         <form action="editor.php" method="post" name="test">
-            <select name="id">
-                <option value="1">Tim</option>
-                <option value="2">Ricardo</option>
-                <option value="3">Marco</option>
-                <option value="4">Max</option>
-                <option value="5">Bluhm</option>
-                <option value="6">Alexej</option>
-                <option value="7">Thomas</option>
-                <option value="8">Steffan</option>
-                <option value="9">Simon</option>
-                <option value="10">Tarek</option>
-                <option value="11">TimG</option>
-                <option value="12">Kathi</option>
-                <option value="13">Micha</option>
-                <option value="14">Pascal</option>
-            </select>
+            <div id="colorBlack">
+                <select name="id">
+                    <option value="1">Tim</option>
+                    <option value="2">Ricardo</option>
+                    <option value="3">Marco</option>
+                    <option value="4">Max</option>
+                    <option value="5">Bluhm</option>
+                    <option value="6">Alexej</option>
+                    <option value="7">Thomas</option>
+                    <option value="8">Steffan</option>
+                    <option value="9">Simon</option>
+                    <option value="10">Tarek</option>
+                    <option value="11">TimG</option>
+                    <option value="12">Kathi</option>
+                    <option value="13">Micha</option>
+                    <option value="14">Pascal</option>
+                </select>
+            </div>
             <br><br>
             <input type="text" name="transaktion" id="transaktion" class="form-control input-sm chat-input" placeholder="transaktion (+ / -)" />
             <br>
@@ -85,6 +87,8 @@ if (login_check($mysqli) == true) :
             <br>
             <input type="submit" name="proc" class="btn btn-primary btn-md" value="Proceed">
         </form>
+        <br><br>
+        Keine Umlaute in der Notiz nutzen !
     </div>
 <?php
 else :
