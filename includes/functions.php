@@ -54,6 +54,7 @@ function kostenNachtragen(){
     $ergebnis = mysqli_query($mysqli, $query);
     $nr = mysqli_fetch_object($ergebnis)->nr;
     $counter = 1;
+    echo $nr;
     while($counter<$nr){
         $query = "SELECT serverkosten FROM monate WHERE nr = '$counter'";
         $ergebnis = mysqli_query($mysqli, $query);
@@ -74,6 +75,7 @@ function kostenNachtragen(){
                 $counter2++;
             }
         }
+        $counter++;
     }
 }
 
