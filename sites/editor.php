@@ -88,6 +88,10 @@ if (login_check($mysqli) == true) :
             <input type="submit" name="proc" class="btn btn-primary btn-md" value="Proceed">
         </form>
         <br><br>
+        <strong>Beispiel:</strong><br>
+        Tim<br>
+        +24<br>
+        Jaehrliche Einzahlung<br><br>
         Keine Umlaute in der Notiz nutzen !
     </div>
 <?php
