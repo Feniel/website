@@ -15,16 +15,7 @@
             <a href="../sites/datenbank.php" id="row">Datenbank</a>
         </div><div id="rowHolder"></div>
         <div id="account" class="dropdown">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </ul>
-            </li>
+            <a href="../includes/login/logout.php" id="row">Logout</a>
         </div>
     </div>
 </div>
