@@ -1,6 +1,6 @@
 <?php
 //ok es sieht so als als ob das include hier nicht auf den oberordner zugreifn kann
-include_once '../includes/db_connect.php';
+include_once '../db_connect.php';
 
 
 function sec_session_start() {
@@ -24,7 +24,7 @@ function sec_session_start() {
 
 function login($email, $password, $mysqli) {
     //global $mysqli;
-    // Das Benutzen vorbereiteter Statements verhindert SQL-Injektion.
+    //Da ich den include error oen nicht lösen kann wird das hier genutzt
     $mysqli = new mysqli(localhost, user, hallo123, website);
     if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
         FROM members

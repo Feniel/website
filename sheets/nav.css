@@ -9,7 +9,7 @@ body {
     left: 1.82%;
     /* top: 20px; */
     top: 1%;
-    width: 95%;
+    width: 98%;
     height: 7%;
 }
 
@@ -22,7 +22,7 @@ body {
 #navPlaceholder2 {
     float: left;
     width: 90%;
-    height: 30%;
+    height: 37%;
 }
 
 #row {
@@ -47,13 +47,18 @@ body {
     height: 50%;
 }
 
-#logout {
-    float: right;
+#account {
+    position:absolute;
+    /* left: 35px; */
+    left: 92%;
+    /* top: 20px; */
+    top: 20%;
     height: 100%;
     width: 5%;
+    color: black;
 }
 
-#menu {
+#menuSide {
     float: left;
     width: 77%;
 }
